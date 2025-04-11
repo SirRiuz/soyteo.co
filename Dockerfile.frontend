@@ -1,0 +1,11 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY frontend/package*.json ./
+
+RUN npm i --legacy-peer-deps
+
+COPY frontend/ .
+
+ENV NODE_PATH=/app
