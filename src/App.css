@@ -1,0 +1,40 @@
+body,
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins";
+  background: linear-gradient(
+      304.58deg,
+      #f4ece1 57.1%,
+      #faf8f3 127.55%,
+      #faf8f3 145.5%,
+      #fcfbf7 145.5%
+    )
+    fixed;
+}
+
+* {
+  cursor: none !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f4ece1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2f2f2f;
+  border-radius: 5px;
+}
