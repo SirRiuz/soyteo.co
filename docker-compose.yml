@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+
+  frontend:
+    image: frontend-client
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    volumes:
+      - ./frontend/:/app/
+      - /app/node_modules/
+    command: npm run dev
+    ports:
+      - "${FRONTEND_SERVER_PORT:-}:${FRONTEND_SERVER_PORT:-}"
+    expose:
+      - ${FRONTEND_SERVER_PORT:-}
