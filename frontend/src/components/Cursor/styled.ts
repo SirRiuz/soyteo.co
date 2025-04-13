@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 
-export const Background = styled.div`
+export const Background = styled(Box)`
   position: fixed;
   width: 40px;
   height: 40px;
@@ -12,7 +13,7 @@ export const Background = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const Pointer = styled.div`
+export const Pointer = styled(Box)`
   position: fixed;
   width: 20px;
   height: 20px;
