@@ -38,8 +38,28 @@ export default function Cursor(): JSX.Element {
 
   return (
     <>
-      <Pointer ref={cursorRef} />
-      <Background ref={pointerRef} />
+      <Pointer
+        ref={cursorRef}
+        sx={{
+          display: {
+            lg: "block",
+            md: "block",
+            sm: "none",
+            xs: "none",
+          },
+        }}
+      />
+      <Background
+        ref={pointerRef}
+        sx={{
+          display: {
+            lg: "block",
+            md: "block",
+            sm: "none",
+            xs: "none",
+          },
+        }}
+      />
     </>
   );
 }
