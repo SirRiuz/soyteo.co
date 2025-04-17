@@ -1,7 +1,7 @@
 import { CardItemType } from "./types";
-import Track from "../../assets/images/track.png";
-import Vivaldi from "../../assets/images/vivaldi.png";
-import Thiup from "../../assets/images/thiup.png";
+import Track from "../../assets/images/track.webp";
+import Vivaldi from "../../assets/images/vivaldi.webp";
+import Thiup from "../../assets/images/thiup.webp";
 
 const VIVALDI_STORE_URL =
   "https://apkcombo.com/es/vivaldi-math-solver/com.sririuz.vivaldi.calculator/";

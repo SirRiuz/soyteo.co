@@ -1,7 +1,7 @@
 import { JSX } from "react";
 import { Grid } from "@mui/material";
 import { IllustrationWrapper, Img } from "./styled";
-import Illustration from "../../assets/images/illustration.png";
+import Illustration from "../../assets/images/illustration.webp";
 import MainTitle from "./MainTitle";
 
 export default function Home(): JSX.Element {
