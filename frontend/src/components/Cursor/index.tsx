@@ -44,7 +44,7 @@ export default function Cursor(): JSX.Element {
           display: {
             lg: "block",
             md: "block",
-            sm: "none",
+            sm: "block",
             xs: "none",
           },
         }}
