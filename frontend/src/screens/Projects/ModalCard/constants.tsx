@@ -1,0 +1,9 @@
+import { ARCHIVED_STATE, IN_DEVELOP_STATE, PRODUCTION_STATE } from "../types";
+
+export const SCAPE_KEY_CODE = 27;
+
+export const STATE_COLOR_MAP = {
+  [PRODUCTION_STATE]: "#10B981",
+  [IN_DEVELOP_STATE]: "#92400E",
+  [ARCHIVED_STATE]: "#6B7280",
+};
