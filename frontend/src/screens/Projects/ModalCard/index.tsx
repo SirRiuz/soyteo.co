@@ -1,9 +1,25 @@
+import { SCAPE_KEY_CODE, STATE_COLOR_MAP } from "./constants";
+import { Body, Container, Description, Header, Icon, Main } from "./styled";
 import { ModalCardProps } from "./types";
+import { JSX, useEffect } from "react";
 import { Grid } from "@mui/material";
-import { Body, Container, Description } from "./styled";
-import React from "react";
+import StateIndicator from "./StateIndicator";
+import Chip from "./Chip";
 
-export default function ModalCard({ index, cards, onClick }: ModalCardProps) {
+export default function ModalCard({
+  index,
+  cards,
+  onClick,
+}: ModalCardProps): JSX.Element {
+  useEffect(() => {
+    // Allows the modal to close when the 'Escape' key is pressed
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.keyCode === SCAPE_KEY_CODE) onClick();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClick]);
+
   return (
     <Container id={cards[index].id} onClick={onClick}>
       <Grid
@@ -17,7 +33,6 @@ export default function ModalCard({ index, cards, onClick }: ModalCardProps) {
       >
         <Body
           layoutId={cards[index].id}
-          style={{ borderRadius: "10px" }}
           transition={{
             type: "spring",
             stiffness: 200,
@@ -26,14 +41,19 @@ export default function ModalCard({ index, cards, onClick }: ModalCardProps) {
             ease: "easeInOut",
           }}
         >
+          <Header>
+            <Chip>
+              <StateIndicator color={STATE_COLOR_MAP[cards[index].state]} />
+              <span style={{ fontSize: "13.5px", textTransform: "capitalize" }}>
+                {cards[index].state}
+              </span>
+            </Chip>
+          </Header>
           {index !== null && (
-            <React.Fragment>
-              <img
-                src={cards[index].icon}
-                style={{ width: "230px", height: "230px" }}
-              />
+            <Main>
+              <Icon src={cards[index].icon} />
               <Description>{cards[index].description}</Description>
-            </React.Fragment>
+            </Main>
           )}
         </Body>
       </Grid>

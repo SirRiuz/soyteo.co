@@ -1,4 +1,4 @@
-import { CardItemType } from "./types";
+import { ARCHIVED_STATE, CardItemType, IN_DEVELOP_STATE, PRODUCTION_STATE } from "./types";
 import Track from "../../assets/images/track.webp";
 import Vivaldi from "../../assets/images/vivaldi.webp";
 import Thiup from "../../assets/images/thiup.webp";
@@ -11,6 +11,7 @@ export const cards: CardItemType[] = [
   {
     id: "0",
     title: "Vivaldi Math Solver",
+    state: PRODUCTION_STATE,
     description: (
       <>
         <a target="_blank" href={VIVALDI_STORE_URL} style={{ color: "black" }}>
@@ -27,6 +28,7 @@ export const cards: CardItemType[] = [
   {
     id: "1",
     title: "Track",
+    state: ARCHIVED_STATE,
     description: (
       <>
         <a
@@ -47,6 +49,7 @@ export const cards: CardItemType[] = [
   {
     id: "2",
     title: "Thiup.com",
+    state: IN_DEVELOP_STATE,
     description: (
       <>
         <a target="_blank" href={THIUP_URL} style={{ color: "black" }}>
