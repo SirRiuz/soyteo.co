@@ -1,0 +1,19 @@
+# Ignore files in the compile process.
+
+docker-compose.yml
+Mafe
+Makefile
+Dockerfile
+.gitignore
+.git/*
+nginx/*
+postgres/*
+README.MD
+__pycache__/*
+*.sqlite3
+.env
+.env.template
+*.zip
+.coveragerc
+.pytest_cache/*
+.DS_Store

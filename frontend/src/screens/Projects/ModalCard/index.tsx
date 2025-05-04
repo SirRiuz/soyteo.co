@@ -33,6 +33,7 @@ export default function ModalCard({
       >
         <Body
           layoutId={cards[index].id}
+          style={{ borderRadius: 5 }}
           transition={{
             type: "spring",
             stiffness: 200,

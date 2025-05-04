@@ -1,0 +1,7 @@
+[run]
+source = modules
+include =
+    integrations/*
+omit =
+    */migrations/*
+    */__init__.py
