@@ -1,7 +1,16 @@
-import { ARCHIVED_STATE, CardItemType, IN_DEVELOP_STATE, PRODUCTION_STATE } from "./types";
+import {
+  ARCHIVED_STATE,
+  CardItemType,
+  IN_DEVELOP_STATE,
+  PRODUCTION_STATE,
+} from "./types";
 import Track from "../../assets/images/track.webp";
 import Vivaldi from "../../assets/images/vivaldi.webp";
 import Thiup from "../../assets/images/thiup.webp";
+import Telephone from "../../assets/images/telephone.png";
+
+const TELEPHONE_API_LINK = "https://telephone.soyteo.co/docs";
+const TELEPHONE_GITHUB_URL = "https://github.com/SirRiuz/Telephone";
 
 const VIVALDI_STORE_URL =
   "https://apkcombo.com/es/vivaldi-math-solver/com.sririuz.vivaldi.calculator/";
@@ -10,20 +19,27 @@ const THIUP_URL = "https://thiup.com/";
 export const cards: CardItemType[] = [
   {
     id: "0",
-    title: "Vivaldi Math Solver",
+    title: "Telephone API",
     state: PRODUCTION_STATE,
     description: (
       <>
-        <a target="_blank" href={VIVALDI_STORE_URL} style={{ color: "black" }}>
-          <strong>Vivaldi</strong>
+        <a target="_blank" href={TELEPHONE_API_LINK} style={{ color: "black" }}>
+          <strong>Telephone</strong>
         </a>{" "}
-        is an open-source scientific calculator that solves complex operations,
-        graphs functions in 2D and 3D, and shows step-by-step solutions. Perfect
-        for learning and teaching math.
+        is an open-source API that uses Twilio to get detailed information about
+        phone numbers. Explore it on{" "}
+        <a
+          target="_blank"
+          href={TELEPHONE_GITHUB_URL}
+          style={{ color: "black" }}
+        >
+          <strong>GitHub</strong>
+        </a>
+        .
       </>
     ),
     color: "#e76f51",
-    icon: Vivaldi,
+    icon: Telephone,
   },
   {
     id: "1",
@@ -62,5 +78,22 @@ export const cards: CardItemType[] = [
     ),
     color: "#e9c46a",
     icon: Thiup,
+  },
+  {
+    id: "3",
+    title: "Vivaldi Math Solver",
+    state: PRODUCTION_STATE,
+    description: (
+      <>
+        <a target="_blank" href={VIVALDI_STORE_URL} style={{ color: "black" }}>
+          <strong>Vivaldi</strong>
+        </a>{" "}
+        is an open-source scientific calculator that solves complex operations,
+        graphs functions in 2D and 3D, and shows step-by-step solutions. Perfect
+        for learning and teaching math.
+      </>
+    ),
+    color: "#e76f51",
+    icon: Vivaldi,
   },
 ];
