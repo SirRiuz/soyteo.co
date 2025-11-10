@@ -1,0 +1,14 @@
+mangum
+SQLAlchemy
+psycopg2-binary
+fastapi[standard]
+boto3
+sqladmin
+geopy
+alembic
+pytest
+coverage
+requests
+humanize
+redis
+pyjwt

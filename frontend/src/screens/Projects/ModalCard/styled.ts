@@ -53,7 +53,6 @@ export const Icon = styled.img`
 export const Body = styled(motion.div)`
   width: 100%;
   height: 75vh;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;

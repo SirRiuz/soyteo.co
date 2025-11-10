@@ -15,3 +15,35 @@ services:
       - "${FRONTEND_SERVER_PORT:-}:${FRONTEND_SERVER_PORT:-}"
     expose:
       - ${FRONTEND_SERVER_PORT:-}
+    depends_on:
+      - api
+
+  api:
+    restart: always
+    command: fastapi dev main.py --host 0.0.0.0 --port ${SERVER_PORT:-}
+    container_name: soy_teo_api
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REQUIREMENTS_FILE: requirements.txt
+    environment:
+      # Project env config.
+      - DEBUG=${DEBUG:-}
+      - ALLOWER_CORS_ORIGINS=${ALLOWER_CORS_ORIGINS:-}
+
+      - PYTHONPATH=/app
+    volumes:
+      - ./api:/app:Z
+
+  nginx:
+    image: nginx_server
+    restart: always
+    build:
+      context: .
+      dockerfile: ./api/nginx/Dockerfile
+    ports:
+      - ${SERVER_PORT:-}:${SERVER_PORT:-}
+    depends_on:
+      - api

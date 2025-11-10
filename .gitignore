@@ -23,3 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 .env
+aws_lambda_artifact.zip
+*.zip
+__pycache__
+*.db
+*.sqlite3
+.pytest_cache
+.env
+.DS_Store
+.TODO
+.coverage
+dependencies

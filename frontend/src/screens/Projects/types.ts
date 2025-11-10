@@ -1,8 +1,8 @@
-export const PRODUCTION_STATE = "production";
+export const PRODUCTION_STATE = "in production";
 export const IN_DEVELOP_STATE = "in development";
 export const ARCHIVED_STATE = "archived";
 
-type CardState = "production" | "in development" | "archived";
+type CardState = "in production" | "in development" | "archived";
 
 export interface CardItemType {
   id: string;
