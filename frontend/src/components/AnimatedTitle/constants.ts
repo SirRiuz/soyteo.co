@@ -1,9 +1,16 @@
 export const CAROUSEL_TITLE = [
   "Mateo .",
-  "SrRiuz .",
-  "Software dev.",
+  "SirRiuz .",
   "Back-End dev.",
   "Front-End dev.",
   "Full-Stack dev.",
   "Adventurer.",
+  "Builder.",
+  "Problem solver.",
+  "Open-sourcer.",
+  "API crafter.",
+  "AI builder.",
+  "LLM tinkerer.",
+  "Prompt hacker.",
+  "Coffee = ∞ .",
 ];

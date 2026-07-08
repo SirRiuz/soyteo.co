@@ -17,24 +17,62 @@ html {
       #fcfbf7 145.5%
     )
     fixed;
+  /* Canvas color behind the page: shown by the iOS/macOS elastic
+     overscroll (rubber band). Must match the app, not default white. */
+  background-color: #f4ece1;
 }
 
-* {
-  cursor: none !important;
+/* Hide the native cursor only where the custom one is rendered:
+   devices with a hover-capable, precise pointer (mouse/trackpad).
+   Touch screens keep their default behavior. */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 }
 
-/* width */
+/* Visually hidden but available to crawlers and screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Scrollbar: transparent track so the page gradient shows through,
+   with a floating pill thumb (inset via transparent border +
+   background-clip). Soft ink at rest, darker on hover, terracotta
+   while dragging — same accent as the brand dot. */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #f4ece1;
+  background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #2f2f2f;
-  border-radius: 5px;
+  background-color: rgba(47, 47, 47, 0.28);
+  border-radius: 999px;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(47, 47, 47, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #e76f51;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(47, 47, 47, 0.35) transparent;
 }

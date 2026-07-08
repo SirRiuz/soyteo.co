@@ -8,7 +8,7 @@ export const Container = styled(Box)`
 `;
 
 export const Title = styled.strong`
-  color: #ff7e00;
+  color: #e76f51;
   letter-spacing: -0.035em;
 `;
 

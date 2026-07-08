@@ -1,10 +1,14 @@
 import { FormEvent, JSX, useEffect, useRef, useState } from "react";
 import {
   Captcha,
+  CloseBtn,
   Container,
   Counter,
   Description,
   Form,
+  FormHeader,
+  FormHint,
+  FormTitle,
   IconBadge,
   MessageField,
   Modal,
@@ -27,6 +31,7 @@ type SubmitState = "idle" | "sending" | "success" | "error";
 
 type TurnstileRenderOptions = {
   sitekey: string;
+  theme?: "light" | "dark" | "auto";
   callback?: (token: string) => void;
   "expired-callback"?: () => void;
   "error-callback"?: () => void;
@@ -50,7 +55,17 @@ export default function ContactModal({
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaReady, setCaptchaReady] = useState(false);
   const [status, setStatus] = useState<SubmitState>("idle");
+
+  // Close with the Escape key, like the projects modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
 
   const canSubmit =
     subject.trim().length > 0 &&
@@ -73,10 +88,13 @@ export default function ContactModal({
       node.innerHTML = "";
       widgetIdRef.current = turnstile.render(node, {
         sitekey: TURNSTILE_SITE_KEY,
+        theme: "light",
         callback: (token) => setCaptchaToken(token),
         "expired-callback": () => setCaptchaToken(""),
         "error-callback": () => setCaptchaToken(""),
       });
+      // Widget is in the DOM now — let it float in instead of popping
+      setCaptchaReady(true);
     };
 
     if (getTurnstile()) {
@@ -93,6 +111,7 @@ export default function ContactModal({
 
     return () => {
       cancelled = true;
+      setCaptchaReady(false);
       if (pollId !== null) window.clearInterval(pollId);
       const turnstile = getTurnstile();
       if (turnstile && widgetIdRef.current !== null) {
@@ -153,14 +172,12 @@ export default function ContactModal({
           }}
         >
           <Container
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 18, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
               type: "spring",
-              stiffness: 200,
-              damping: 20,
-              duration: 0.3,
-              ease: "easeInOut",
+              stiffness: 320,
+              damping: 30,
             }}
           >
             {status === "sending" && (
@@ -207,6 +224,18 @@ export default function ContactModal({
 
             {status === "idle" && (
               <Form ref={formRef} onSubmit={handleSubmit}>
+                <FormHeader>
+                  <FormTitle>
+                    Say hello<span>.</span>
+                  </FormTitle>
+                  <CloseBtn onClick={onClose} data-cursor="pointer">
+                    ✕
+                  </CloseBtn>
+                </FormHeader>
+                <FormHint>
+                  Tell me about your project, role or idea — I usually reply
+                  within a day.
+                </FormHint>
                 <Title
                   name="subject"
                   placeholder="Email subject"
@@ -232,7 +261,16 @@ export default function ContactModal({
                 <Send type="submit" disabled={!canSubmit} $block>
                   Send email
                 </Send>
-                <Captcha ref={captchaRef} />
+                <Captcha
+                  ref={captchaRef}
+                  initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                  animate={
+                    captchaReady
+                      ? { opacity: 1, y: 0, scale: 1 }
+                      : { opacity: 0, y: 12, scale: 0.95 }
+                  }
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                />
               </Form>
             )}
           </Container>

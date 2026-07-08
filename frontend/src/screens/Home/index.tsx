@@ -1,29 +1,24 @@
 import { JSX } from "react";
 import { Grid } from "@mui/material";
-import { IllustrationWrapper, Img } from "./styled";
-import Illustration from "../../assets/images/illustration.webp";
 import MainTitle from "./MainTitle";
+import TerminalCard from "./TerminalCard";
 
 export default function Home(): JSX.Element {
   return (
     <Grid
       container
+      component="section"
       justifyContent={"center"}
       sx={{
-        height: {
-          lg: "auto",
-          md: "auto",
-          sm: "100vh",
-          xs: "100vh",
-        },
+        height: "auto",
       }}
     >
       <Grid
         marginTop={{
           lg: 0,
           md: 0,
-          sm: "120px",
-          xs: "50px",
+          sm: "36px",
+          xs: "12px",
         }}
         size={{
           lg: 6,
@@ -32,6 +27,10 @@ export default function Home(): JSX.Element {
           xs: 12,
         }}
       >
+        <h1 className="sr-only">
+          Mateo Jiménez — Full-Stack Software Engineer (React, TypeScript,
+          Node.js, Python)
+        </h1>
         <MainTitle />
       </Grid>
       <Grid
@@ -54,9 +53,7 @@ export default function Home(): JSX.Element {
           },
         }}
       >
-        <IllustrationWrapper>
-          <Img src={Illustration} />
-        </IllustrationWrapper>
+        <TerminalCard />
       </Grid>
     </Grid>
   );

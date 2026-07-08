@@ -25,15 +25,12 @@ export const Container = styled(motion.div)`
   align-items: center;
   width: 100%;
   min-height: 480px;
-  border-radius: 10px;
-  background: linear-gradient(
-    304.58deg,
-    #f4ece1 57.1%,
-    #faf8f3 127.55%,
-    #faf8f3 145.5%,
-    #fcfbf7 0
-  );
-  padding: 54px;
+  border-radius: 16px;
+  background: #fbf7f0;
+  border: 1px solid rgba(47, 47, 47, 0.06);
+  box-shadow: 0 30px 80px rgba(47, 47, 47, 0.18);
+  padding: 40px 44px;
+  box-sizing: border-box;
 `;
 
 export const Form = styled.form`
@@ -42,7 +39,50 @@ export const Form = styled.form`
   width: 100%;
 `;
 
-export const Captcha = styled.div`
+export const FormHeader = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 4px;
+`;
+
+export const FormTitle = styled.h3`
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #2f2f2f;
+
+  span {
+    color: #e76f51;
+  }
+`;
+
+export const FormHint = styled.p`
+  margin: 0 0 24px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  color: #8a7a68;
+  line-height: 1.6;
+`;
+
+export const CloseBtn = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(47, 47, 47, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #2f2f2f;
+  flex-shrink: 0;
+`;
+
+export const Captcha = styled(motion.div)`
   display: flex;
   justify-content: center;
   margin-top: 18px;
@@ -59,20 +99,22 @@ export const Modal = styled(motion.div)`
   justify-content: center;
   justify-self: center;
   align-content: center;
+  z-index: 1210;
 `;
 
 export const MessageField = styled.div`
   position: relative;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 `;
 
 export const Description = styled.textarea`
-  background-color: #f0e1cc;
-  border: none;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(47, 47, 47, 0.1);
+  border-radius: 12px;
   color: #2f2f2f;
-  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   outline: none;
   padding: 15px 15px 28px 15px;
   width: 100%;
@@ -82,10 +124,19 @@ export const Description = styled.textarea`
   box-sizing: border-box;
   margin: 0;
   overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
   &::placeholder {
-    color: #2f2f2fa9;
+    color: rgba(47, 47, 47, 0.4);
     font-family: "Poppins";
-    font-weight: 600;
+    font-weight: 500;
+  }
+
+  &:focus {
+    border-color: rgba(231, 111, 81, 0.65);
+    box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.12);
   }
 `;
 
@@ -102,33 +153,41 @@ export const Counter = styled.span<{ $atLimit?: boolean }>`
 `;
 
 export const Title = styled.input`
-  background-color: #f0e1cc;
-  border: none;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(47, 47, 47, 0.1);
+  border-radius: 12px;
   color: #2f2f2f;
-  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   height: 55px;
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   outline: none;
   padding: 0 15px;
   width: 100%;
   box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
   &::placeholder {
-    color: #2f2f2fa9;
+    color: rgba(47, 47, 47, 0.4);
     font-family: "Poppins";
-    font-weight: 600;
+    font-weight: 500;
+  }
+
+  &:focus {
+    border-color: rgba(231, 111, 81, 0.65);
+    box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.12);
   }
 `;
 
 export const Send = styled.button<{ $block?: boolean }>`
   align-self: center;
-  background: #1a1a1a;
+  background: #2f2f2f;
   border: none;
-  border-radius: ${(p) => (p.$block ? "12px" : "999px")};
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 8px 20px rgba(26, 26, 26, 0.28);
-  color: #fff;
+  border-radius: 999px;
+  box-shadow: 0 14px 30px rgba(47, 47, 47, 0.22);
+  color: #f4ece1;
   width: ${(p) => (p.$block ? "100%" : "auto")};
   height: ${(p) => (p.$block ? "52px" : "42px")};
   padding: 0 ${(p) => (p.$block ? "28px" : "22px")};
@@ -141,20 +200,18 @@ export const Send = styled.button<{ $block?: boolean }>`
     transform 0.15s ease,
     box-shadow 0.15s ease,
     background 0.15s ease;
+
   &:hover:not(:disabled) {
-    background: #000;
-    transform: translateY(-1px);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.1) inset,
-      0 12px 24px rgba(0, 0, 0, 0.32);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(47, 47, 47, 0.26);
   }
   &:active:not(:disabled) {
     transform: translateY(0);
   }
   &:disabled {
-    background: #c8beb0;
+    background: rgba(47, 47, 47, 0.16);
     box-shadow: none;
-    color: #fffb;
+    color: rgba(47, 47, 47, 0.45);
     cursor: not-allowed;
   }
 `;
@@ -175,7 +232,7 @@ export const Spinner = styled.div`
   height: 52px;
   border-radius: 50%;
   border: 3px solid rgba(47, 47, 47, 0.12);
-  border-top-color: #2f2f2f;
+  border-top-color: #e76f51;
   animation: ${spin} 0.8s linear infinite;
 `;
 

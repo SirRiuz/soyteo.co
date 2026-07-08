@@ -7,6 +7,10 @@ export const Container = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(0px);
+  background-color: rgba(244, 236, 225, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  /* Above page content (transformed elements create stacking contexts
+     that would otherwise paint over the overlay), below the cursor */
+  z-index: 1200;
 `;
