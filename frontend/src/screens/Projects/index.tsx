@@ -14,11 +14,21 @@ export default function Projects(): JSX.Element {
   }, [index]);
 
   return (
-    <Grid container justifyContent={"center"} gap={2}>
+    <Grid
+      container
+      justifyContent={"center"}
+      gap={2}
+      sx={{ paddingBottom: "72px" }}
+    >
+      <h1 className="sr-only">
+        Projects — open-source work by Mateo Jiménez
+      </h1>
       <LayoutGroup>
         <AnimatePresence>
-          <Cards cards={cards} setIndex={setIndex} />
-          {index !== null && <AnimatedScreen onClick={() => setIndex(null)} />}
+          <Cards key="cards" cards={cards} setIndex={setIndex} />
+          {index !== null && (
+            <AnimatedScreen key="overlay" onClick={() => setIndex(null)} />
+          )}
           {index !== null && (
             <ModalCard
               key="singlecard"

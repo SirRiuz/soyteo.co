@@ -10,8 +10,8 @@ export default function GitHubButton(): JSX.Element {
 
   return (
     <Container>
-      <GhButton onClick={handleClick}>
-        <img src={GitHubSvg} />
+      <GhButton onClick={handleClick} aria-label="GitHub profile of SirRiuz">
+        <img src={GitHubSvg} alt="GitHub logo" />
       </GhButton>
       <Box
         sx={{

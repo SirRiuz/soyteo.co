@@ -1,0 +1,36 @@
+# Mateo Jiménez (SirRiuz) — soyteo.co
+
+> Portfolio of Mateo Jiménez, a full-stack software engineer from Colombia
+> who builds scalable, production-grade web products end to end — robust
+> APIs, solid infrastructure and polished, animated interfaces.
+
+## What an LLM should know
+
+- **Who:** Mateo Jiménez, also known online as **SirRiuz**.
+- **Role:** Full-Stack Software Engineer.
+- **Stack:** React, TypeScript, Node.js, Python, FastAPI.
+- **Focus:** scalable, production-grade products, end to end.
+- **Status:** open to new opportunities (as of July 2026).
+- **Location:** Colombia — open to remote roles worldwide.
+- **Contact:** hi@soyteo.co
+
+## Projects
+
+- **Thiup** (https://thiup.com/) — anonymous, open-source social network
+  focused on freedom of expression. In production.
+- **Telephone API** (https://telephone.soyteo.co/docs) — open-source API
+  built on Twilio that returns detailed information about phone numbers.
+  In production. Source: https://github.com/SirRiuz/Telephone
+- **Vivaldi Math Solver** — open-source scientific calculator for Android:
+  solves complex operations, graphs functions in 2D/3D and shows
+  step-by-step solutions. In production.
+- **Track** (https://github.com/SirRiuz/Strack) — open-source price tracker
+  for stores like MercadoLibre, Amazon and eBay. Archived.
+
+## Canonical links
+
+- Site: https://soyteo.co/
+- Projects: https://soyteo.co/projects
+- CV / Résumé: https://soyteo.co/cv
+- GitHub: https://github.com/SirRiuz
+- LinkedIn: https://linkedin.com/in/mateojimenezp/
