@@ -18,10 +18,9 @@ function ConditionalCursor(): JSX.Element | null {
 }
 
 const DEFAULT_META = {
-  title:
-    "Mateo Jiménez — Full-Stack Software Engineer | React, TypeScript, Python",
+  title: "Mateo Jiménez — Full-Stack Software Engineer",
   description:
-    "Mateo Jiménez (SirRiuz) — full-stack software engineer building scalable, production-grade web products with React, TypeScript, Node.js and Python. Creator of Thiup, Telephone API and Vivaldi Math Solver. Contact: hi@soyteo.co",
+    "Mateo Jiménez (SirRiuz), full-stack software engineer building scalable web products with React, TypeScript and Python. Creator of Thiup. hi@soyteo.co",
   canonical: "https://soyteo.co/",
 };
 
@@ -33,15 +32,15 @@ const ROUTE_META: Record<
   "/home": DEFAULT_META,
   "/index.html": DEFAULT_META,
   "/projects": {
-    title: "Projects — Mateo Jiménez | Thiup, Telephone API, Vivaldi",
+    title: "Projects — Mateo Jiménez | Thiup, Telephone API",
     description:
-      "Open-source projects by Mateo Jiménez: Thiup (anonymous social network), Telephone API (phone number intelligence on Twilio), Vivaldi Math Solver and Track.",
+      "Open-source projects by Mateo Jiménez: Thiup, Telephone API, Vivaldi Math Solver and Track — built with React, TypeScript and Python.",
     canonical: "https://soyteo.co/projects",
   },
   "/cv": {
-    title: "CV / Résumé — Mateo Jiménez, Full-Stack Software Engineer",
+    title: "CV / Résumé — Mateo Jiménez, Software Engineer",
     description:
-      "Résumé of Mateo Jiménez, full-stack software engineer specializing in React, TypeScript, Node.js and Python. Open to new opportunities.",
+      "Résumé of Mateo Jiménez, full-stack software engineer (React, TypeScript, Node.js, Python). Open to new opportunities.",
     canonical: "https://soyteo.co/cv",
   },
 };
