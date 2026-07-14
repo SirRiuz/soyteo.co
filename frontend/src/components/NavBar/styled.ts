@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { motion } from "motion/react";
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   height: 130px;
   justify-content: center;

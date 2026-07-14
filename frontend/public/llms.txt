@@ -31,6 +31,8 @@
 
 - Site: https://soyteo.co/
 - Projects: https://soyteo.co/projects
-- CV / Résumé: https://soyteo.co/cv
+- CV / Résumé (English, default): https://soyteo.co/en/cv
+  (https://soyteo.co/cv redirects here)
+- CV / Hoja de vida (Español): https://soyteo.co/es/cv
 - GitHub: https://github.com/SirRiuz
 - LinkedIn: https://linkedin.com/in/mateojimenezp/
