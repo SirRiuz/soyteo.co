@@ -2,6 +2,7 @@ import { JSX } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { TABS_LIST } from "./constants";
 import { ActivePill, Container, Dock, Item, Label, LabelDot } from "./styled";
+import CVSelector from "../CVSelector";
 
 export default function NavBar(): JSX.Element {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ export default function NavBar(): JSX.Element {
           );
         })}
       </Dock>
+      <CVSelector />
     </Container>
   );
 }
